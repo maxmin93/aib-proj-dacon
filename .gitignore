@@ -1,0 +1,10 @@
+# IPython
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# temp
+temp/*
+ko-embeddings/*
+
+# OS
+.DS_Store
