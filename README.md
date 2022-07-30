@@ -183,7 +183,7 @@
 | 2022-07-29 (29위) | [submission_v6.6](./colab/review_ratings-electra-hanspell.ipynb) | **0.6685** | hanspell 전처리 + KcELECTRA 임베딩 & 분류  |
 
 - 1위는 정확도 0.7124 (제출 40회)
-- 2~6위는 정확도 0.70xx (제출 20~30회)
+- 2 ~ 6위는 정확도 0.70xx (제출 20 ~ 30회)
 
 #### submission_v5.2 의 학습 곡선
 
