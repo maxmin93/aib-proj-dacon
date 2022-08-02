@@ -168,19 +168,20 @@
 
 #### 제출자료 평가 (제출 13회)
 
-| 제출일            | 버전                                                             | 정확도     | 사용한 기법                                |
-| :---------------- | :--------------------------------------------------------------- | :--------- | :----------------------------------------- |
-| 2022-07-20        | [baseline_v1](./baselines/review_scores-baseline1.ipynb)         | `0.6160`   | 공백분리 + Count(TF) + LR 모델             |
-| 2022-07-20        | [baseline_v2](./baselines/review_scores-baseline2.ipynb)         | `0.6410`   | Okt + TFIDF + LR 모델                      |
-| 2022-07-23        | submission_v1                                                    | 0.6478     | 전처리 + Okt + TFIDF + LR 모델             |
-| 2022-07-24 (27위) | submission_v2                                                    | **0.6504** | v1 기법 + 노이즈 제거 추가                 |
-| 2022-07-25 (29위) | [submission_v3](./colab/review_ratings-lr.ipynb)                 | 0.6457     | v2 기법 + Okt 스테밍 추가                  |
-| 2022-07-25        | v4                                                               | 0.5659     | 전처리 + Okt + W2V + RNN 모델(LSTM)        |
-| 2022-07-26 (32위) | v5                                                               | 0.6276     | KoBERT 임베딩 + KoBERT 분류                |
-| 2022-07-27 (34위) | v6.1                                                             | 0.6366     | KcELECTRA 임베딩 + KcELECTRA 분류          |
-| 2022-07-28 (29위) | [submission_v6.2](./colab/review_ratings-transformers.ipynb)     | **0.6591** | 전처리 + KcELECTRA 임베딩 + KcELECTRA 분류 |
-| 2022-07-29        | [submission_v5.2](./colab/review_ratings-bert-hanspell.ipynb)    | **0.6634** | hanspell 전처리 + KcELECTRA 임베딩 & 분류  |
-| 2022-07-29 (29위) | [submission_v6.6](./colab/review_ratings-electra-hanspell.ipynb) | **0.6685** | hanspell 전처리 + KcELECTRA 임베딩 & 분류  |
+| 제출일            | 버전                                                                   | 정확도     | 사용한 기법                                |
+| :---------------- | :--------------------------------------------------------------------- | :--------- | :----------------------------------------- |
+| 2022-07-20        | [baseline_v1](./baselines/review_scores-baseline1.ipynb)               | `0.6160`   | 공백분리 + Count(TF) + LR 모델             |
+| 2022-07-20        | [baseline_v2](./baselines/review_scores-baseline2.ipynb)               | `0.6410`   | Okt + TFIDF + LR 모델                      |
+| 2022-07-23        | submission_v1                                                          | 0.6478     | 전처리 + Okt + TFIDF + LR 모델             |
+| 2022-07-24 (27위) | submission_v2                                                          | **0.6504** | v1 기법 + 노이즈 제거 추가                 |
+| 2022-07-25 (29위) | [submission_v3](./colab/review_ratings-lr.ipynb)                       | 0.6457     | v2 기법 + Okt 스테밍 추가                  |
+| 2022-07-25        | v4                                                                     | 0.5659     | 전처리 + Okt + W2V + RNN 모델(LSTM)        |
+| 2022-07-26 (32위) | v5                                                                     | 0.6276     | KoBERT 임베딩 + KoBERT 분류                |
+| 2022-07-27 (34위) | v6.1                                                                   | 0.6366     | KcELECTRA 임베딩 + KcELECTRA 분류          |
+| 2022-07-28 (29위) | [submission_v6.2](./colab/review_ratings-transformers.ipynb)           | **0.6591** | 전처리 + KcELECTRA 임베딩 + KcELECTRA 분류 |
+| 2022-07-29        | [submission_v5.2](./colab/review_ratings-bert-hanspell.ipynb)          | **0.6634** | hanspell 전처리 + KcELECTRA 임베딩 & 분류  |
+| 2022-07-29 (29위) | [submission_v6.6](./colab/review_ratings-electra-hanspell.ipynb)       | **0.6685** | hanspell 전처리 + KcELECTRA 임베딩 & 분류  |
+| 2022-08-02 (37위) | [submission_v7.1](./colab/review_ratings-tf_translator_hanspell.ipynb) | 0.6489     | hanspell 전처리 + TF translate             |
 
 - 1위는 정확도 0.7124 (제출 40회)
 - 2 ~ 6위는 정확도 0.70xx (제출 20 ~ 30회)
@@ -241,6 +242,7 @@
   - [word2vec](./colab/review_ratings-word2vec.ipynb)
   - [FastText](./colab/review_scores-mecab.ipynb#fasttext)
   - Glove
+  - [universal sentence encoder - cmlm](./colab/review_ratings-tf_translator_hanspell.ipynb): 100개 이상 언어에 사용 가능
     <br/>&nbsp;
 - 회귀 모델
   - [LogisticRegression](./colab/review_ratings-lr.ipynb)
