@@ -149,10 +149,10 @@
 
 ## 산출물
 
-### 기획서
+### 발표자료
 
-- 쇼핑몰 평점 예측 : [기획서](https://docs.google.com/document/d/1jfLnp2CpxM93vH13pf1JPVlKoradFlQs/edit)
-- 쇼핑몰 매출 회귀 : [기획서](https://docs.google.com/document/d/15uZdy0D6MTcNtIa7nnewaCnGqklPZQkE/edit)
+- 쇼핑몰 리뷰 평점 예측 : [PDF](./ICT_AIB-%EB%A6%AC%EB%B7%B0%ED%8F%89%EC%A0%90%EC%98%88%EC%B8%A1_20220729.pdf)
+- 쇼핑몰 매출액 예측 : [PDF](./ICT_AIB-%EC%87%BC%ED%95%91%EB%AA%B0%EB%A7%A4%EC%B6%9C%EC%98%88%EC%B8%A1_20220729.pdf)
 
 &nbsp;
 
