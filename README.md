@@ -14,7 +14,15 @@
   - 전처리: BERT
   - 모델: BERT
 
-&nbsp;
+**쇼핑몰 리뷰 평점 분포** (3점은 분류가 안되기 때문에 문제 자체에서 제공 안함)
+
+<img src="https://github.com/maxmin93/aib-proj-dacon/blob/main/images/real_target-barchart.png" width="540" />
+<br/>&nbsp;
+
+**리뷰 평점1과 평점5의 Token IDF 분포** (TfidfVectorizer 로부터 추출)
+
+<img src="https://github.com/maxmin93/aib-proj-dacon/blob/main/images/rating1_rating5-idf_dist-barchart.png" width="540" />
+<br/>노이즈 제거와 특징이 되는 단어들을 선별하는 것부터가 전처리의 시작&nbsp;
 
 ### 2. [쇼핑몰 지점별 매출액 예측 경진대회](https://dacon.io/competitions/official/235942/overview/description)
 
@@ -132,7 +140,7 @@
 
 프로젝트는 또한번 이상과 현실을 혼동하는 나에게 깨달음을 주었는데, 한번에 두걸음은 못걷는다는 점이다. 처음 생각은, 프로그래밍 기초도 있고 인터넷에 자료도 많으니 2주라는 시간이면 모든 문제를 풀어보자는 계획이었다. 이론과 현실이 다르듯이 구어체와 노이즈로 범벅된 실제 데이터는 공부했던 어느 기술에도 딱 들어맞지 않았다. 어떻게든 모델을 돌려보고 추측과 다르면 그제야 문제와 데이터를 살피는 어리석은 짓을 짧은 기간에도 몇번을 저질렀다. 월등할거라 여겼던 RNN/CNN 이 LogisticRegression 모델보다 결과가 좋지 않을 때에는 무엇을 더 해보아야 할지 모르겠다는 막막함도 느꼈다. 개인이 가진 시간과 체력의 한계를 절감했다.
 
-데이콘 경진대회에서는 제출 자료에 대한 정확도 평가와 순위를 제공한다. 이번 프로젝트의 성과는 KcELECTRA 모델을 사용해 얻은 정확도 `0.6591` (31위)로 축약된다. 목표보다 부족한 성과이지만 전체 과정을 경험했고, 실데이터를 상대로 성과를 얻었다는 것, 궁하면 뭐든(?) 가져다 쓸 수 있다는 경험도 얻었다. 정리하자면 이제는 진입장벽을 느끼지 않고 혼자서도 공부를 이러갈만 하겠다는 마음가짐이 큰 성과라 생각한다.
+데이콘 경진대회에서는 제출 자료에 대한 정확도 평가와 순위를 제공한다. 이번 프로젝트의 성과는 KcELECTRA 모델을 사용해 얻은 정확도 `0.6591` (31위)로 축약된다. 목표보다 부족한 성과이지만 전체 과정을 경험했고, 실데이터를 상대로 성과를 얻었다는 것, 궁하면 뭐든(?) 가져다 쓸 수 있다는 경험도 얻었다. 정리하자면 이제는 진입장벽을 느끼지 않고 혼자서도 공부를 이어갈만 하겠다는 마음가짐이 큰 성과라 생각한다.
 
 - 1차 목표: 제시된 베이스라인2(정확도 0.641)보다 더 높은 정확도를 얻는 것... <font color='lightblue'>성공!!</font>
   - 베이스라인2: Okt + TFIDF + LogisticRegression
@@ -191,7 +199,9 @@
 학습의 효과가 그리 크지 않다. <br/>
 어떤 모델도 대동소이하고, 그나마 나은 모양이 이정도이다.
 
-![submission_v5.2: acc, loss lines](./images/bert-train-acc_loss-linechart.png)
+![submission_v5.2: acc, loss lines](https://github.com/maxmin93/aib-proj-dacon/blob/main/images/bert-train-acc_loss-linechart.png)<br/>&nbsp;
+
+![submission_v5.2: metrics lines](https://github.com/maxmin93/aib-proj-dacon/blob/main/images/dnn-train-metrics-linechart.png)<br/>&nbsp;
 
 #### submission_v6.6 의 metrics 테이블
 
