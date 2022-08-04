@@ -1,4 +1,4 @@
-# <img src="https://dacon.io/_nuxt/img/main-logo.aa87261.svg" width="140"/> &nbsp;쇼핑몰 분석 프로젝트
+# <img src="https://dacon.io/_nuxt/img/main-logo.aa87261.svg" width="140" style="background-color: lightgray"/> &nbsp;쇼핑몰 분석 프로젝트
 
 ## 서브 프로젝트
 
@@ -16,12 +16,12 @@
 
 **쇼핑몰 리뷰 평점 분포** (3점은 분류가 안되기 때문에 문제 자체에서 제공 안함)
 
-<img src="https://github.com/maxmin93/aib-proj-dacon/blob/main/images/real_target-barchart.png" width="540" />
+<img src="https://github.com/maxmin93/aib-proj-dacon/blob/main/images/real_target-barchart.png" width="540" style="background-color: lightgray"/>
 <br/>&nbsp;
 
 **리뷰 평점1과 평점5의 Token IDF 분포** (TfidfVectorizer 로부터 추출)
 
-<img src="https://github.com/maxmin93/aib-proj-dacon/blob/main/images/rating1_rating5-idf_dist-barchart.png" width="540" />
+<img src="https://github.com/maxmin93/aib-proj-dacon/blob/main/images/rating1_rating5-idf_dist-barchart.png" width="540" style="background-color: lightgray"/>
 <br/>노이즈 제거와 특징이 되는 단어들을 선별하는 것부터가 전처리의 시작&nbsp;
 
 ### 2. [쇼핑몰 지점별 매출액 예측 경진대회](https://dacon.io/competitions/official/235942/overview/description)
@@ -199,9 +199,9 @@
 학습의 효과가 그리 크지 않다. <br/>
 어떤 모델도 대동소이하고, 그나마 나은 모양이 이정도이다.
 
-![submission_v5.2: acc, loss lines](https://github.com/maxmin93/aib-proj-dacon/blob/main/images/bert-train-acc_loss-linechart.png)<br/>&nbsp;
+<img src="https://github.com/maxmin93/aib-proj-dacon/raw/main/images/bert-train-acc_loss-linechart.png" width="600" style="background-color: lightgray"/><br/>&nbsp;
 
-![submission_v5.2: metrics lines](https://github.com/maxmin93/aib-proj-dacon/blob/main/images/dnn-train-metrics-linechart.png)<br/>&nbsp;
+<img src="https://github.com/maxmin93/aib-proj-dacon/raw/main/images/dnn-train-metrics-linechart.png" width="680" style="background-color: lightgray"/><br/>&nbsp;
 
 #### submission_v6.6 의 metrics 테이블
 
