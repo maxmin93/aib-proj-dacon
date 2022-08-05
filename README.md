@@ -293,6 +293,65 @@
 - 각 그룹별로 특징적인 키워드를 먼저 선별하여 feature 로 적용했으면 좋을듯
   - IDF 시각화 참조
 
+### DACON 경진대회 입상자 코드
+
+1위 코드와 비교해 보면, 띄어쓰기 전처리와 electra 모델을 사용한 점이 같다.<br/>
+그 외에 중요한 훈련 전략의 설계와 모델의 앙상블 등에서 큰 차이가 발생했다.<br/>
+실제 문제들은 하나 이상의 규칙성을 포함하기 때문에 _**best-practice** 로 매우 유용하겠다._
+
+#### [Private 1위 (0.71312) | funnel + electra | Soft-Voting](https://dacon.io/competitions/official/235938/codeshare/5938?page=1&dtype=recent)
+
+- 라이브러리
+  - py-torch, transformer( funnel + electra )
+    </br>&nbsp;
+- 전처리
+  - 특수기호, URL 패턴 제거
+    - 한글 `[가-힣]` 과 [이모지](https://unicode.org/emoji/charts/full-emoji-list.html) `emoji.UNICODE_EMOJI` 는 남기고
+  - [soynlp.normalizer.repeat_normalize](https://github.com/lovit/soynlp#normalizer): 반복되는 문자 정제
+  - 띄어쓰기 [PyKoSpacing](https://github.com/haven-jeon/PyKoSpacing)
+    - 참고: [한국어 전처리 패키지(Text Preprocessing Tools for Korean Text)](https://velog.io/@ganta/%ED%95%9C%EA%B5%AD%EC%96%B4-%EC%A0%84%EC%B2%98%EB%A6%AC-%ED%8C%A8%ED%82%A4%EC%A7%80Text-Preprocessing-Tools-for-Korean-Text)
+      </br>&nbsp;
+- 토크나이징 + 데이터셋
+  - 실제값 전처리: `df['target'].map({1:0, 2:1, 4:2, 5:3})`
+  - CustomDataset(Dataset)
+    </br>&nbsp;
+- 학습
+  - 파라미터
+    - NUM_CLASSES = 4 (클래스는 4개뿐, 평점3은 제외)
+    - MAX_LEN = 50
+    - BATCH_SIZE = 128
+    - EPOCHS = 10
+    - LEARNING_RATE = 2e-5
+    - LABEL_SMOOTHING = 0.05
+    - SEED = 2022 (랜덤 시드는 22 사용)
+  - 사전훈련 모델 ==> 2가지 예측모델을 만들어 앙상블
+    - [kykim/electra-kor-base](https://huggingface.co/kykim/electra-kor-base)
+    - [kykim/funnel-kor-base](https://huggingface.co/kykim/funnel-kor-base)
+  - 콜백
+    - [EarlyStopping](https://github.com/Bjarten/early-stopping-pytorch/blob/master/pytorchtools.py)
+      - 여러 요소를 따져서 조기종료를 정의하려면 Custom 클래스를 만들어야 한다
+      - `self.best_score` 갱신시 `save_checkpoint` 실행
+  - 전략
+    - optimizer: AdamW
+    - 교차검증: StratifiedKFold(N_FOLD=5)
+    - 손실함수: `nn.CrossEntropyLoss(label_smoothing=LABEL_SMOOTHING)`
+      - 라벨 스무딩을 이용하여 모델의 일반화 성능을 향상시킴 (평점이 리뷰와 안맞는 케이스 완화)
+      - 참고: [Label smoothing 이란?](https://jeonghwarr.github.io/tips/label_smoothing/)
+        </br>&nbsp;
+- 평가
+
+  - 모델 2개 생성
+    - eletra_model = eletra 토크나이저 + skFold + CrossEntropyLoss(label_smoothing)
+    - funnel_model = funnel 토크나이저 + skFold + CrossEntropyLoss(label_smoothing)
+  - 모델 앙상블
+    - 예측값 = eletra 예측값 + funnel 예측값
+    - 두 모델의 예측값 중 최대값 선택: `torch.max(torch.tensor(preds), dim=1)`
+      </br>&nbsp;
+
+- 예측(테스트) 결과 생성
+  - 예측값 후처리: `submission['target'].map({0:1, 1:2, 2:4, 3:5})`
+    </br>&nbsp;
+
 참고
 
 ```diff
